@@ -6,6 +6,7 @@ export default class List extends React.Component {
     return (
       <div>
         Main Page!!
+        <a href="/list">aaa</a>
         <Login />
       </div>
     )

@@ -92,7 +92,8 @@ export default new WebpackConfig()
 
       new ChunkManifestPlugin({
         filename: 'chunk-manifest.json',
-        manifestVariable: 'webpackManifest'
+        manifestVariable: 'webpackManifest',
+        inlineManifest: true
       }),
 
       new ManifestPlugin({

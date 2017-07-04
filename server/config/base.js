@@ -27,5 +27,5 @@ export default function middleware(app) {
   app.use(convert(Logger()))
   app.use(bodyParser())
   app.use(mount('/', convert(Serve(path.join(__dirname, '/../../dist/')))))
-  app.use(views(path.join(__dirname, '/..'), { extension: 'html' }))
+  app.use(views(path.join(__dirname, '/../../dist/'), { extension: 'html' }))
 }

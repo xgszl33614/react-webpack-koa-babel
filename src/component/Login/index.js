@@ -6,7 +6,6 @@ const FormItem = Form.Item
 
 export class NormalLoginForm extends React.Component {
   constructor(props) {
-    console.log('hhh')
     super(props)
     this.state = {
       userName: null,
@@ -23,7 +22,6 @@ export class NormalLoginForm extends React.Component {
   }
   render() {
     const { getFieldDecorator } = this.props.form
-    console.log('hhh')
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>
