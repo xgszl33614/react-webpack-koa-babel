@@ -110,7 +110,7 @@ export default new WebpackConfig()
       new CopyWebpackPlugin([
         {
           from: PATHS.static,
-          force: true
+          to: 'static'
         },
       ]),
 
