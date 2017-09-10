@@ -6,3 +6,4 @@
 ## koa2
 ## babel6
 ## git
+## git2
