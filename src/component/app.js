@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './app.local.less'
 console.log('App.js exec!!!!!!!!!')
+const test11 = 11
 export default class App extends React.Component {
   render() {
     return (
