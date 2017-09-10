@@ -11,6 +11,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin'
 import ManifestPlugin from 'webpack-manifest-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
+// import InlineManifestWebpackPlugin from 'inline-manifest-webpack-plugin'
 import ChunkManifestPlugin from 'chunk-manifest-webpack-plugin'
 // import CompressionPlugin from 'compression-webpack-plugin'
 // import BrotliPlugin from 'brotli-webpack-plugin'
@@ -63,20 +64,20 @@ export default new WebpackConfig()
         DEBUG: false,
       }),
 
-      new webpack.optimize.UglifyJsPlugin({
-        mangle: true,
-        compress: {
-          warnings: false,
-          pure_getters: true,
-          unsafe: true,
-          unsafe_comps: true,
-          screw_ie8: true
-        },
-        output: {
-          comments: false
-        },
-        exclude: [/\.min\.js$/gi]
-      }),
+      // new webpack.optimize.UglifyJsPlugin({
+      //   mangle: true,
+      //   compress: {
+      //     warnings: false,
+      //     pure_getters: true,
+      //     unsafe: true,
+      //     unsafe_comps: true,
+      //     screw_ie8: true
+      //   },
+      //   output: {
+      //     comments: false
+      //   },
+      //   exclude: [/\.min\.js$/gi]
+      // }),
 
       extractCSS,
       new WebpackChunkHash(),
@@ -85,11 +86,16 @@ export default new WebpackConfig()
       new webpack.optimize.OccurrenceOrderPlugin(),
       new webpack.optimize.AggressiveMergingPlugin(),
 
+      // new webpack.optimize.ModuleConcatenationPlugin(), // webpack3 optimize
+
       new webpack.optimize.CommonsChunkPlugin({
         name: 'manifest',
         minChunks: Infinity
       }),
 
+      // new InlineManifestWebpackPlugin({
+      //   name: 'webpackManifest'
+      // }),
       new ChunkManifestPlugin({
         filename: 'chunk-manifest.json',
         manifestVariable: 'webpackManifest',
@@ -111,12 +117,13 @@ export default new WebpackConfig()
         {
           from: PATHS.static,
           to: 'static'
-        },
+        }
       ]),
 
       new HtmlWebpackPlugin({
         template: path.resolve(PATHS.src, 'index.html'),
-        filename: 'index.html'
+        filename: 'index.html',
+        xhtml: true // 生成闭合标签
       }),
 
       // new CompressionPlugin({

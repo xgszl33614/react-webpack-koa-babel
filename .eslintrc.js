@@ -26,6 +26,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    "no-plusplus": 0,
     "no-param-reassign": 0,
     "semi": [2, "never"],
     "generator-star-spacing": 0,

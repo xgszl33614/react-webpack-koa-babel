@@ -31,9 +31,10 @@ export default new WebpackConfig().extend('[root]/base.js').merge({
               targets: {
                 browsers: 'chrome > 40'
               },
-              modules: false
+              // modules: false
             }],
-            'react'
+            'react',
+            'stage-0',
           ],
           plugins: [
             ['import', { libraryName: 'antd', style: 'css' }]

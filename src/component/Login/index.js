@@ -12,13 +12,17 @@ export class NormalLoginForm extends React.Component {
       password: null
     }
   }
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault()
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values)
       }
     })
+  }
+
+  hh = (flag) => {
+    this.setState({ flag })
   }
   render() {
     const { getFieldDecorator } = this.props.form
@@ -28,7 +32,10 @@ export class NormalLoginForm extends React.Component {
           {getFieldDecorator('userName', {
             rules: [{ required: true, message: 'Please input your username!' }],
           })(
-            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
+            <div>
+              <button onClick={() => this.hh(1)}>aaaaasgagggggggggaaaaa</button>
+              <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
+            </div>
           )}
         </FormItem>
         <FormItem>

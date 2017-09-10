@@ -1,30 +1,9 @@
-/* eslint-disable import/no-dynamic-require, no-console */
-
-// Webpack entry point.  Note the .babel.js extension-- this will be parsed
-// through babel, using the `.babelrc` settings to transpile to your current
-// version of Node
-
-// ----------------------
-// IMPORTS
-
-/* Node */
 import path from 'path'
-
-// FitBit's [webpack-config](https://fitbit.github.io/webpack-config/) lib for
-// breaking down complex configurations into multiple files for easier
-// extensibility
 import Config, { environment } from 'webpack-config'
 
 // Project paths configuration
 import PATHS from './config/paths'
 
-console.log('==============webpack.config.babel.js==============')
-console.log('==============NODE_ENV==============', process.env.NODE_ENV)
-console.log('==============webpack.config.babel.js==============')
-// ----------------------
-
-// Helper function that'll take the name of the config file, and throw back an
-// array of Webpack objects to use for the final config
 function load(file) {
   // Resolve the config file
   let wp

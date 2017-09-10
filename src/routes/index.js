@@ -1,5 +1,6 @@
 export default {
   path: '/',
+  component: require('COMPONENT/App').default,
   indexRoute: {
     getComponent (nextState, cb) {
       require.ensure([], (require) => {
@@ -8,14 +9,22 @@ export default {
     }
   },
   childRoutes: [
-    {
-      path: '/list', // 加上`/`可以不用套上父路径
-      getComponent (nextState, cb) {
-        require.ensure([], (require) => {
-          cb(null, require('COMPONENT/List/').default)
-        }, 'b')
-      }
-    },
+    // {
+    //   path: '/list', // 加上`/`可以不用套上父路径
+    //   getComponent (nextState, cb) {
+    //     require.ensure([], (require) => {
+    //       cb(null, require('COMPONENT/List/').default)
+    //     }, 'e')
+    //   }
+    // },
+    // {
+    //   path: '/list0', // 加上`/`可以不用套上父路径
+    //   getComponent (nextState, cb) {
+    //     require.ensure([], (require) => {
+    //       cb(null, require('COMPONENT/List0/').default)
+    //     }, 'b')
+    //   }
+    // },
     {
       path: '/main', // 加上`/`可以不用套上父路径
       getComponent (nextState, cb) {
@@ -24,14 +33,14 @@ export default {
         }, 'c')
       }
     },
-    {
-      path: '/:id',
-      getComponent (nextState, cb) {
-        require.ensure([], (require) => {
-          cb(null, require('COMPONENT/Detail/').default)
-          // cb(null, require('COMPONENT/Newhouse/Detail/newhouse-detail.scss').default)
-        }, 'd')
-      }
-    }
+    // {
+    //   path: '/:id',
+    //   getComponent (nextState, cb) {
+    //     require.ensure([], (require) => {
+    //       cb(null, require('COMPONENT/Detail/').default)
+    //       // cb(null, require('COMPONENT/Newhouse/Detail/newhouse-detail.scss').default)
+    //     }, 'd')
+    //   }
+    // }
   ]
 }
