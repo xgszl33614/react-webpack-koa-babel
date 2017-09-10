@@ -18,3 +18,7 @@ export default class App extends React.Component {
 }
 const test21 = 21
 const test22 = 22
+const test23 = 23
+const test24 = 24
+const test25 = 25
+const test26 = 26
